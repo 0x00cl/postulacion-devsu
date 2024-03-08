@@ -7,6 +7,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+
 jobs:
   build:
     env:
@@ -20,14 +21,18 @@ jobs:
       with:
         python-version: ${{env.PYTHON_VERSION}}
     - name: Install Dependencies
+      working-directory: ./app
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
+      working-directory: ./app
       run: |
         python manage.py test
     - name: Scan with SonarCloud
       uses: SonarSource/sonarcloud-github-action@v2.1.1
+      with:
+        projectBaseDir: app
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
