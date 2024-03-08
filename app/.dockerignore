@@ -1,0 +1,5 @@
+# Development configuration
+.env
+
+# Virtual environment 'venv'
+venv
