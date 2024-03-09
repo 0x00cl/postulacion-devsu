@@ -1,6 +1,8 @@
 FROM docker.io/library/python:3.11.3-alpine
 ENV PYTHONUNBUFFERED 1
 
+ENV DJANGO_DEBUG=True
+
 RUN apk update && apk upgrade
 RUN python -m pip install gunicorn
 
