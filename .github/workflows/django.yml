@@ -11,6 +11,7 @@ on:
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: postulacion-devsu
+  ECR_REGISTRY_ALIAS: z6a3d9k0
 
 
 jobs:
@@ -43,8 +44,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-docker-image:
+    needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.1.1
@@ -72,4 +73,4 @@ jobs:
         with:
           context: app
           push: true
-          tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+          tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REGISTRY_ALIAS }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
