@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myapp-config
+  namespace: myapp-devsu
+data:
+  DJANGO_SECRET_KEY: "jkjd923mdkqwmk"
+  DATABASE_NAME: "db.sqlite3"
