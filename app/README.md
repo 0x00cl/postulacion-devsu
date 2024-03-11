@@ -35,6 +35,14 @@ The database is generated as a file in the main path when the project is first r
 
 Consider giving access permissions to the file for proper functioning.
 
+## Docker
+
+Para construir la imagen docker se debe ejecutar el siguiente comando.
+
+```
+$ docker build -t myapp:dev .
+```
+
 ## Usage
 
 To run tests you can use this command.
